@@ -1,0 +1,31 @@
+INICIO: CAJERO_AUTOMATICO
+  // Definición de Variables y Constantes
+  DEFINIR saldo_cuenta COMO REAL = 500.00  // Saldo inicial de ejemplo
+  DEFINIR monto_retiro COMO REAL
+  DEFINIR BILLETE_BASE COMO ENTERO = 20
+
+  // ENTRADA: Pedir el monto
+  ESCRIBIR "Ingrese el monto a retirar:"
+  LEER monto_retiro
+
+  // Verificación de Monto Válido y Positivo
+  SI (monto_retiro > 0) Y (monto_retiro MOD BILLETE_BASE ES IGUAL A 0) ENTONCES
+    // El monto es positivo y múltiplo de 20 
+
+    //  Verificación de Saldo
+    SI monto_retiro ES MENOR O IGUAL A saldo_cuenta ENTONCES
+      // CASO FELIZ: Retiro exitoso
+      saldo_cuenta = saldo_cuenta - monto_retiro
+      ESCRIBIR "Retiro exitoso de: " + monto_retiro
+      ESCRIBIR "Nuevo saldo: " + saldo_cuenta
+    SINO
+      // CASO NEGATIVO: Saldo insuficiente
+      ESCRIBIR "ERROR: Saldo insuficiente en la cuenta."
+    FIN SI
+
+  SINO
+    // CASO EXTREMO: Monto no es múltiplo de 20 o es negativo/cero
+    ESCRIBIR "ERROR: El monto debe ser positivo y múltiplo de " + BILLETE_BASE + "."
+  FIN SI
+
+FIN: CAJERO_AUTOMATICO
