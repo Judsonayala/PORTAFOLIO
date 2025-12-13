@@ -1,0 +1,35 @@
+INICIO: CALCULO_PROMEDIO
+  // Definición de Variables e inicialización
+  DEFINIR nota_actual COMO REAL
+  DEFINIR suma_notas COMO REAL = 0.0
+  DEFINIR contador_notas COMO ENTERO = 0
+
+  // ENTRADA INICIAL: Pedir la primera nota para iniciar el bucle
+  ESCRIBIR "Ingrese una nota (0 para terminar y calcular el promedio):"
+  LEER nota_actual
+
+  // LÓGICA REPETITIVA (Bucle While)
+  MIENTRAS nota_actual ES DIFERENTE DE 0 HACER
+    // Proceso: Acumular la nota y el contador
+    suma_notas = suma_notas + nota_actual
+    contador_notas = contador_notas + 1
+
+    // Control: Pedir la siguiente nota (Actualiza la condición del bucle)
+    ESCRIBIR "Ingrese la siguiente nota (0 para terminar):"
+    LEER nota_actual
+  FIN MIENTRAS
+
+  // LÓGICA FINAL (Cálculo del Promedio)
+
+  // el usuario podria ingresar 0 en el primer inteno
+  SI contador_notas ES MAYOR QUE 0 ENTONCES
+    DEFINIR promedio COMO REAL
+    promedio = suma_notas / contador_notas
+    ESCRIBIR "El número total de notas ingresadas es: " + contador_notas
+    ESCRIBIR "El promedio de las notas es: " + promedio
+  SINO
+    // Caso Negativo: No se ingresó ninguna nota
+    ESCRIBIR "No se ingresó ninguna nota. No se puede calcular el promedio."
+  FIN SI
+
+FIN: CALCULO_PROMEDIO
